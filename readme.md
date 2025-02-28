@@ -1,5 +1,5 @@
 
-# Personality Alignment of Large Language Models
+# Personality Alignment of Large Language Models [ICLR 2025]
 
 Welcome to the official repository for Personality Alignment with PASO (Personality Activate Search Optimize). This repository is dedicated to advancing the field of personalized AI by aligning large language models (LLMs) with individual user preferences and personality traits. Here, you'll find the code and data supporting our groundbreaking research.
 
@@ -84,14 +84,13 @@ We welcome contributions to enhance the personalized alignment capabilities of L
 For a detailed understanding of our methods and results, refer to our latest paper on personalized alignment using the PAS method. Additionally, you can find implementations of DPO, PPO, and other baseline methods within this repository.
 
 ```
-@misc{zhu2024personalityalignmentlargelanguage,
-      title={Personality Alignment of Large Language Models}, 
-      author={Minjun Zhu and Linyi Yang and Yue Zhang},
-      year={2024},
-      eprint={2408.11779},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2408.11779}, 
+@inproceedings{
+zhu2025personality,
+title={Personality Alignment of Large Language Models},
+author={Minjun Zhu and Yixuan Weng and Linyi Yang and Yue Zhang},
+booktitle={The Thirteenth International Conference on Learning Representations},
+year={2025},
+url={https://openreview.net/forum?id=0DZEs8NpUH}
 }
 ```
 

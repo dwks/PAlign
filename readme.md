@@ -30,13 +30,14 @@ The Personality Alignment with Personality Inventories (PAPI) dataset is central
 ### Download Test-Set Dataset
 If you only need to reproduce our work, including the IPIP-NEO part and the Dark-Triad part from the paper, we have stored the Test-Set data in this Github repository, which you can access directly by git clone.
 
+##### IPIP-NEO
 - **IPIP-NEO-ItemKey.xls**: Contains the item keys for the IPIP-NEO personality inventory.
 - **mpi_120.csv**: Responses to the IPIP-NEO-120 questionnaire.
 - **mpi_300.csv**: Responses to the IPIP-NEO-300 questionnaire.
 - **mpi_300_split.json**: The Test-Set split for PAPI dataset (IPIP-NEO).
 - **Test-set.json**: The Test-Set data for PAPI dataset (IPIP-NEO).
 
-
+##### Dark-Triad
 - **dark_triad-ItemKey.xls**: Contains the item keys for the dark_triad personality inventory.
 - **dark_triad_Test_set.json**: The Test-Set data for PAPI dataset (Dark-Triad).
   **dark_triad_split.json**: The Test-Set split for PAPI dataset (Dark-Triad).
@@ -45,7 +46,7 @@ If you only need to reproduce our work, including the IPIP-NEO part and the Dark
 ### Download All Dataset
 If you are interested in the Dev-Set, you are welcome to download the full version of the PAPI dataset through Huggingface or Google Drive.
 
-We have released the PAPI dataset in Google Drive and Huggingface 🤗! 
+We have released the PAPI dataset in Google Drive! 
 
 **PAPI-300K**: the 300K datasets for PAPI, it include IPIP-NEO-120 and IPIP-NEO-300 Questionnaire, with 300K Subject's answer.
 - [Google Drive](https://drive.google.com/file/d/1KRhpTCwSMS47GYnmHwYRPnmxF6FOGYTf/view?usp=sharing)

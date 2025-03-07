@@ -40,7 +40,7 @@ If you only need to reproduce our work, including the IPIP-NEO part and the Dark
 ##### Dark-Triad
 - **dark_triad-ItemKey.xls**: Contains the item keys for the dark_triad personality inventory.
 - **dark_triad_Test_set.json**: The Test-Set data for PAPI dataset (Dark-Triad).
-  **dark_triad_split.json**: The Test-Set split for PAPI dataset (Dark-Triad).
+- **dark_triad_split.json**: The Test-Set split for PAPI dataset (Dark-Triad).
 
   
 ### Download All Dataset

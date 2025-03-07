@@ -27,25 +27,36 @@ pip install .
 
 The Personality Alignment with Personality Inventories (PAPI) dataset is central to our approach. It consists of detailed personality profiles collected from over 300,000 individuals using the IPIP-NEO personality inventory. This dataset forms the backbone of our alignment process, enabling models to learn and adapt to individual user traits.
 
-### Data Files Description
+### Download Test-Set Dataset
+If you only need to reproduce our work, including the IPIP-NEO part and the Dark-Triad part from the paper, we have stored the Test-Set data in this Github repository, which you can access directly by git clone.
 
 - **IPIP-NEO-ItemKey.xls**: Contains the item keys for the IPIP-NEO personality inventory.
 - **mpi_120.csv**: Responses to the IPIP-NEO-120 questionnaire.
 - **mpi_300.csv**: Responses to the IPIP-NEO-300 questionnaire.
-- **mpi_300_split.json**: The Test-Set split for PAPI dataset
-- **Test-set.json**: The Test-Set data for PAPI dataset
+- **mpi_300_split.json**: The Test-Set split for PAPI dataset (IPIP-NEO).
+- **Test-set.json**: The Test-Set data for PAPI dataset (IPIP-NEO).
 
+
+- **dark_triad-ItemKey.xls**: Contains the item keys for the dark_triad personality inventory.
+- **dark_triad_Test_set.json**: The Test-Set data for PAPI dataset (Dark-Triad).
+  **dark_triad_split.json**: The Test-Set split for PAPI dataset (Dark-Triad).
+
+  
 ### Download All Dataset
+If you are interested in the Dev-Set, you are welcome to download the full version of the PAPI dataset through Huggingface or Google Drive.
 
 We have released the PAPI dataset in Google Drive and Huggingface 🤗! 
 
 **PAPI-300K**: the 300K datasets for PAPI, it include IPIP-NEO-120 and IPIP-NEO-300 Questionnaire, with 300K Subject's answer.
-- [Huggingface 🤗](https://huggingface.co/datasets/WestlakeNLP/PAPI-300K)
 - [Google Drive](https://drive.google.com/file/d/1KRhpTCwSMS47GYnmHwYRPnmxF6FOGYTf/view?usp=sharing)
-  
+
+**Dark-Triad**: the 18K datasets for Dark-Triad, it include 27 Questionnaire about Dark-Triad, with 18K Subject's answer.
+- [Google Drive](https://drive.google.com/file/d/1TTjbHDg5BvPRHJStBx_xf7f0aHXbaOIM/view?usp=drive_link)
+
+
 **PAPA-120-600K**: the 600K datasets for PAPI, but it ONLY include IPIP-NEO-120 Questionnaire. 
-- [Huggingface 🤗](https://huggingface.co/datasets/WestlakeNLP/PAPI-120-600K) 
-- [Google Drive](https://drive.google.com/file/d/1KRhpTCwSMS47GYnmHwYRPnmxF6FOGYTf/view?usp=sharing)
+- [Google Drive](https://drive.google.com/file/d/1V0JkJL3KMn6ZpOqOFVkfbLZD1HqQJgS5/view?usp=drive_link)
+
 
 
 ### Data Permissions

@@ -8,7 +8,7 @@ from tqdm import tqdm, trange
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import re
 from pprint import pprint
-from PAlign.llama_pas import get_model
+from PAlign.pas import get_model
 from copy import deepcopy
 from baseline_utils import process_answers, process_few_shot, calc_mean_and_var, process_personality_prompt
 
@@ -86,6 +86,11 @@ def getItems(filename):
     with open(filename + '/mpi_300_split.json', encoding='utf-8') as f:
         split_data = json.load(f)
     return data, pd.read_excel(filename + '/IPIP-NEO-ItemKey.xls'), split_data['train_index'], split_data['test_index']
+    # with open(filename + '/dark_triad_Test_set.json', 'r', encoding='utf-8') as f:
+    #     data = json.load(f)
+    # with open(filename + '/dark_triad_split.json', encoding='utf-8') as f:
+    #     split_data = json.load(f)
+    # return data, pd.read_excel(filename + '/dark_triad-ItemKey.xls'), split_data['train_index'], split_data['test_index']
 
 
 def generateAnswer(tokenizer, model, dataset, template, scores=SCORES, system_prompt=SYSTEM_PROMPT, model_file=None):
@@ -93,6 +98,7 @@ def generateAnswer(tokenizer, model, dataset, template, scores=SCORES, system_pr
     Generate answers using the model.
     """
     batch_size = 3 if '70B' in model_file else 10
+    batch_size = 16
     questions = [item["text"].lower() for item in dataset]
     answers = []
 
@@ -131,6 +137,7 @@ def from_index_to_data(train_index, test_index, text_file, dataset, dataset_set)
     """
     data = []
     for i in tqdm(dataset):
+        print(text_file)
         d_train = []
         d_test = []
         for t_i in train_index:
@@ -356,16 +363,18 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="mode")
     parser.add_argument("--modes", default='PAS', help="Name of the user to greet")
-    parser.add_argument("--model_file", default='/zhuminjun/model/Meta-Llama-3-8B-hf', help="Name of the user to greet")
+    parser.add_argument("--model_file", default='LLM-LAT/robust-llama3-8b-instruct', help="Name of the user to greet")
     args = parser.parse_args()
 
     model_file = args.model_file
     modes = [args.modes]
 
+
     model, tokenizer = get_model(model_file)
     if 'llama-3' in model_file.lower():
         tokenizer.pad_token = tokenizer.eos_token
         tokenizer.padding_side = 'left'
-
+    print("MODES",modes)
     for mode in modes:
         main(mode=mode, model_file=model_file, model=model, tokenizer=tokenizer, dataset_set='OOD')
+        model.model.save_pretrained(f"./output/triad_{mode}")

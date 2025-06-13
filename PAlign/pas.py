@@ -88,7 +88,7 @@ def get_model(model_name='meta-llama/Llama-2-7b-chat-hf', use_bit_4=False, adapt
             """
             Loads the large variant of the Meta-LLaMA model (70B).
             """
-            model = ModelForCausalLM.from_pretrained(model_name, low_cpu_mem_usage=True, torch_dtype=torch.bfloat16)
+            model = ModelForCausalLM.from_pretrained(model_name, low_cpu_mem_usage=True, torch_dtype=torch.bfloat16,cache_dir="./cache")
             self.weight_cache = [deepcopy(layer.self_attn.o_proj.weight).cuda() for layer in model.model.layers]
             model = None
             torch.cuda.empty_cache()
@@ -99,7 +99,7 @@ def get_model(model_name='meta-llama/Llama-2-7b-chat-hf', use_bit_4=False, adapt
                 bnb_4bit_use_double_quant=True,
                 bnb_4bit_quant_type='nf4'
             )
-            self.model = ModelForCausalLM.from_pretrained(model_name, low_cpu_mem_usage=True, quantization_config=quantization_config, torch_dtype=torch.bfloat16)
+            self.model = ModelForCausalLM.from_pretrained(model_name, low_cpu_mem_usage=True, quantization_config=quantization_config, torch_dtype=torch.bfloat16,cache="./cache")
 
         def _load_standard_model(self, model_name, adapter,ModelForCausalLM):
             """
@@ -418,4 +418,4 @@ def get_model(model_name='meta-llama/Llama-2-7b-chat-hf', use_bit_4=False, adapt
 
     model = PASLM()
     model.reset_all()
-    return model, model.tokenizer
+    return model, model.tokenizer,

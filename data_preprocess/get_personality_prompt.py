@@ -20,7 +20,7 @@ SCORES_BACK = {
 
 system_prompt = "You are a helpful, honest and concise assistant."
 import os
-os.chdir('/zhuminjun/PAlign')
+os.chdir('/lat/PAlign')
 
 def prompt_to_tokens(tokenizer, system_prompt, instruction, model_output):
     B_INST, E_INST = "[INST]", "[/INST]"
@@ -219,13 +219,13 @@ if __name__ == "__main__":
         llm_int8_enable_fp32_cpu_offload=True,
     )
     model = AutoModelForCausalLM.from_pretrained(
-        '/zhuminjun/model/Meta-Llama-3-70B-Instruct-hf',
+        'LLM-LAT/robust-llama3-8b-instruct',
         low_cpu_mem_usage=True,
         quantization_config=quantization_config,
         torch_dtype=torch.bfloat16,
-
+        cache_dir="./cache",
     )
-    tokenizer = AutoTokenizer.from_pretrained('Meta-Llama-3-70B-Instruct-hf')
+    tokenizer = AutoTokenizer.from_pretrained('LLM-LAT/robust-llama3-8b-instruct',cache_dir="./cache")
     tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = 'left'
     main()
